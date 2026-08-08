@@ -1,0 +1,63 @@
+:root {
+  --bg-desk: #e7e4f5;
+  --phone-bg: #f4f1fb;
+  --chat-bg: #eee9fb;
+  --bubble-partner: #ffffff;
+  --bubble-partner-text: #2c2a3a;
+  --bubble-me: linear-gradient(135deg, #a78bfa, #f472b6);
+  --bubble-me-text: #ffffff;
+  --accent: #8b5cf6;
+  --accent-pink: #f472b6;
+  --text-main: #2c2a3a;
+  --text-sub: #8b879c;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --radius-lg: 28px;
+  --radius-bubble: 18px;
+  --font-main: 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-main);
+  background: var(--bg-desk);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+img {
+  -webkit-user-drag: none;
+}

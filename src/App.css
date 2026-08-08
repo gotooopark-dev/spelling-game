@@ -1,0 +1,128 @@
+.phone-frame {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 100dvh;
+  max-height: 100dvh;
+  background: var(--phone-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (min-width: 560px) {
+  .phone-frame {
+    height: min(880px, 92dvh);
+    max-height: 92dvh;
+    border-radius: var(--radius-lg);
+    box-shadow:
+      0 30px 60px -20px rgba(50, 30, 80, 0.35),
+      0 0 0 10px #17151f,
+      0 0 0 12px #2c2938;
+  }
+}
+
+.phone-notch {
+  display: none;
+}
+
+@media (min-width: 560px) {
+  .phone-notch {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 22px;
+    background: #17151f;
+    border-radius: 0 0 16px 16px;
+    z-index: 20;
+  }
+}
+
+.phone-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  position: relative;
+}
+
+/* 노치가 그려질 공간을 확보해 헤더/콘텐츠와 겹치지 않도록 함 */
+@media (min-width: 560px) {
+  .phone-screen {
+    padding-top: 22px;
+  }
+}
+
+/* 상단 푸시 알림 배너: 화면 위에서 슬라이드되어 내려온다 */
+.push-banner {
+  position: absolute;
+  top: max(10px, env(safe-area-inset-top) + 6px);
+  left: 10px;
+  right: 10px;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border: none;
+  border-radius: 16px;
+  padding: 10px 14px;
+  box-shadow: 0 14px 28px -10px rgba(50, 30, 80, 0.4);
+  cursor: pointer;
+  text-align: left;
+  transform: translateY(-160%);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (min-width: 560px) {
+  .push-banner {
+    top: 30px;
+  }
+}
+
+.push-banner--visible {
+  transform: translateY(0);
+}
+
+.push-banner-avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50%;
+  background: var(--bubble-me);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.push-banner-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.push-banner-name {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--text-main);
+}
+
+.push-banner-preview {
+  font-size: 12.5px;
+  color: var(--text-sub);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
