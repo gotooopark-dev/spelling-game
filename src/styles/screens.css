@@ -43,6 +43,14 @@
   padding-bottom: 16px;
 }
 
+/* 시작 화면 하단 소개 문구 (검색엔진/사용자용 짧은 설명) */
+.site-intro {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--text-sub);
+}
+
 /* 개인정보처리방침 링크/모달 */
 .privacy-link {
   margin: 0;
