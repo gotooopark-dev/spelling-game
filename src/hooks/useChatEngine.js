@@ -130,6 +130,17 @@ export function useChatEngine(steps, { onFinish, onWrongAnswer, onCorrectAnswer 
     }, BLOCK_SILENCE_DELAY);
   };
 
+  // 진행 중인 스텝(대기/타이핑 등)을 즉시 정리하고 finish 스텝에 도달한 것처럼 처리한다.
+  const skip = () => {
+    if (phase === 'done') return;
+    clearTimers();
+    setTyping(false);
+    setPendingChoices(null);
+    setPendingPhoto(false);
+    setPhase('done');
+    onFinishRef.current?.();
+  };
+
   const confirmPhotoViewed = () => {
     if (!pendingPhoto) return;
     setPendingPhoto(false);
@@ -150,5 +161,6 @@ export function useChatEngine(steps, { onFinish, onWrongAnswer, onCorrectAnswer 
     blocked,
     phase,
     correctCount,
+    skip,
   };
 }

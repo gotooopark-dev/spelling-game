@@ -22,7 +22,7 @@ export default function FriendChatScreen({ playerGender, onEnterGame }) {
   const [showBanner, setShowBanner] = useState(false);
   const bannerTimer = useRef(null);
 
-  const { messages, typing } = useChatEngine(steps, {
+  const { messages, typing, phase, skip } = useChatEngine(steps, {
     onFinish: () => {
       bannerTimer.current = setTimeout(() => setShowBanner(true), BANNER_DELAY);
     },
@@ -33,6 +33,11 @@ export default function FriendChatScreen({ playerGender, onEnterGame }) {
   return (
     <div className="chat-screen">
       <ChatHeader name="베프" />
+      {phase === 'playing' && (
+        <button type="button" className="skip-link" onClick={skip}>
+          대화 건너뛰기
+        </button>
+      )}
       <ChatThread messages={messages} typing={typing} />
       {showBanner && (
         <NotificationBanner

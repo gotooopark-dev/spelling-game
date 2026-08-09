@@ -9,6 +9,28 @@
   overflow: hidden;
 }
 
+/* 오프닝(친구와의 대화) 전용 스킵 버튼 */
+.skip-link {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top) + 10px);
+  right: 14px;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (min-width: 560px) {
+  .skip-link {
+    top: 34px;
+  }
+}
+
 /* header */
 .chat-header {
   display: flex;
