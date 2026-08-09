@@ -3,6 +3,7 @@ import ChatHeader from '../components/ChatHeader';
 import ChatThread from '../components/ChatThread';
 import ChoiceButtons from '../components/ChoiceButtons';
 import PhotoModal from '../components/PhotoModal';
+import ProfileModal from '../components/ProfileModal';
 import { useChatEngine } from '../hooks/useChatEngine';
 import { DEFAULT_AVATAR, getPartner, mainGameQuestions } from '../data/scenario';
 
@@ -82,12 +83,18 @@ export default function MainGameScreen({ playerGender, onWrong, onComplete }) {
     confirmPhotoViewed();
   };
 
+  const [profileOpen, setProfileOpen] = useState(false);
+
   const avatar = blocked ? DEFAULT_AVATAR : partner.avatar;
   const photoVariant = partner.type === 'someNam' ? 'male' : 'female';
 
   return (
     <div className="chat-screen">
-      <ChatHeader name={partner.name} avatar={avatar} />
+      <ChatHeader
+        name={partner.name}
+        avatar={avatar}
+        onAvatarClick={() => setProfileOpen(true)}
+      />
       <ChatThread
         messages={messages}
         typing={typing}
@@ -103,6 +110,15 @@ export default function MainGameScreen({ playerGender, onWrong, onComplete }) {
         blocked={blocked}
       />
       {photoOpen && <PhotoModal variant={photoVariant} onClose={closePhoto} />}
+      {profileOpen && (
+        <ProfileModal
+          name={partner.name}
+          statusMessage={partner.statusMessage}
+          avatar={partner.avatar}
+          background={partner.profileBackground}
+          onClose={() => setProfileOpen(false)}
+        />
+      )}
     </div>
   );
 }

@@ -10,11 +10,26 @@ export const GENDER = {
 // 오답으로 차단되는 순간 상대 프로필을 대신할 기본 회색 아이콘
 export const DEFAULT_AVATAR = '/profiles/default.svg';
 
-// 플레이어 성별에 따른 상대 정보
+// 플레이어 성별에 따른 상대 정보. 프로필 모달에 쓰이는 배경 사진/상태메시지도
+// 여기서 함께 관리하므로, 나중에 바꿀 땐 이 함수만 수정하면 된다.
 export function getPartner(playerGender) {
   return playerGender === GENDER.FEMALE
-    ? { type: 'someNam', label: '썸남', name: '썸남', avatar: '/profiles/male.png' }
-    : { type: 'someNyeo', label: '썸녀', name: '썸녀', avatar: '/profiles/female.png' };
+    ? {
+        type: 'someNam',
+        label: '썸남',
+        name: '썸남',
+        avatar: '/profiles/male.png',
+        profileBackground: '/profiles/profile-bg-male.png',
+        statusMessage: '힘내자😺',
+      }
+    : {
+        type: 'someNyeo',
+        label: '썸녀',
+        name: '썸녀',
+        avatar: '/profiles/female.png',
+        profileBackground: '/profiles/profile-bg-female.png',
+        statusMessage: '재밌어💕',
+      };
 }
 
 // ── 오프닝: 친구와의 대화 ──────────────────────────────────
