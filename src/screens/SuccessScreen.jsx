@@ -1,6 +1,6 @@
 import EndingFooter from '../components/EndingFooter';
 import ShareButton from '../components/ShareButton';
-import { successTitle } from '../data/scenario';
+import { successShareText, successTitle } from '../data/scenario';
 
 export default function SuccessScreen({ onRestart }) {
   return (
@@ -12,7 +12,7 @@ export default function SuccessScreen({ onRestart }) {
           <button type="button" className="primary-btn" onClick={onRestart}>
             다시 도전하기
           </button>
-          <ShareButton />
+          <ShareButton text={successShareText} />
         </div>
       </div>
       <EndingFooter />

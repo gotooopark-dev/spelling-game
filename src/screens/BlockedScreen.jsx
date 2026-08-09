@@ -1,6 +1,6 @@
 import EndingFooter from '../components/EndingFooter';
 import ShareButton from '../components/ShareButton';
-import { getWrongAnswerInfo } from '../data/scenario';
+import { getFailureShareText, getWrongAnswerInfo } from '../data/scenario';
 
 export default function BlockedScreen({ questionId, onRestart }) {
   const info = getWrongAnswerInfo(questionId);
@@ -21,7 +21,7 @@ export default function BlockedScreen({ questionId, onRestart }) {
           <button type="button" className="primary-btn primary-btn--dark" onClick={onRestart}>
             다시 도전하기
           </button>
-          <ShareButton />
+          <ShareButton text={getFailureShareText(questionId)} />
         </div>
       </div>
       <EndingFooter />

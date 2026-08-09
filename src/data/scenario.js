@@ -245,6 +245,12 @@ export function getFirstMessagePreview() {
 // 10번 문제의 followup(다음 데이트 제안 대사)이 끝나면 대화창을 잠깐 더 보여준 뒤 성공 화면으로 이어진다.
 export const successTitle = '다음 약속을 잡았습니다💘';
 
+// 결과 공유하기 버튼에 쓰이는 문구
+export const successShareText = '다음 데이트 잡는 데 성공 💘';
+export function getFailureShareText(questionId) {
+  return `${questionId}번째 맞춤법에서 썸 종료🥲`;
+}
+
 // 오답 선택 후 정적 -> 차단 연출 중, 대화창 하단에 잠깐 보여줄 안내 문구
 export const blockedBannerText = '메시지를 보낼 수 없습니다.';
 

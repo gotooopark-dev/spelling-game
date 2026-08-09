@@ -26,7 +26,7 @@ async function copyToClipboard(value) {
   }
 }
 
-export default function ShareButton() {
+export default function ShareButton({ text }) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -34,14 +34,14 @@ export default function ShareButton() {
 
     if (navigator.share) {
       try {
-        await navigator.share({ url });
+        await navigator.share(text ? { text, url } : { url });
       } catch {
         // 사용자가 공유를 취소한 경우 — 별도 처리 없음
       }
       return;
     }
 
-    const ok = await copyToClipboard(url);
+    const ok = await copyToClipboard(text ? `${text}\n${url}` : url);
     if (ok) {
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
