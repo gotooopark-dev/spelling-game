@@ -152,6 +152,21 @@
   background: #e5e2f5;
 }
 
+.msg-avatar-btn {
+  border: none;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.12s ease;
+}
+
+.msg-avatar-btn:active {
+  transform: scale(0.9);
+}
+
 @keyframes bubble-in {
   from {
     opacity: 0;
@@ -455,4 +470,40 @@
   color: rgba(255, 255, 255, 0.88);
   font-size: 13.5px;
   word-break: keep-all;
+}
+
+.profile-modal-actions {
+  display: flex;
+  align-items: stretch;
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.profile-modal-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 13px 8px;
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.profile-modal-action-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.profile-modal-action-divider {
+  width: 1px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.25);
 }

@@ -8,6 +8,7 @@ export default function ChatThread({
   hasChoices,
   photoVariant,
   photoPressed,
+  onAvatarClick,
 }) {
   const bodyRef = useRef(null);
 
@@ -22,7 +23,18 @@ export default function ChatThread({
       {messages.map((m) => (
         <div key={m.id} className={`chat-row chat-row--${m.from}`}>
           {m.from === 'partner' && avatarSrc && (
-            <img src={avatarSrc} alt="" className="msg-avatar" />
+            onAvatarClick ? (
+              <button
+                type="button"
+                className="msg-avatar-btn"
+                onClick={onAvatarClick}
+                aria-label="프로필 보기"
+              >
+                <img src={avatarSrc} alt="" className="msg-avatar" />
+              </button>
+            ) : (
+              <img src={avatarSrc} alt="" className="msg-avatar" />
+            )
           )}
           <div className="chat-row-content">
             {m.kind === 'photo' ? (

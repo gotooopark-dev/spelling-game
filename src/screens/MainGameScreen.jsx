@@ -102,6 +102,7 @@ export default function MainGameScreen({ playerGender, onWrong, onComplete }) {
         hasChoices={!!pendingChoices}
         photoVariant={photoVariant}
         photoPressed={photoPressed}
+        onAvatarClick={() => setProfileOpen(true)}
       />
       <ChoiceButtons
         choices={pendingChoices}
