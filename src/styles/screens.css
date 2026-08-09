@@ -38,9 +38,14 @@
   padding-bottom: 16px;
 }
 
+.cover-screen--start {
+  justify-content: flex-start;
+  padding-bottom: 16px;
+}
+
 /* 개인정보처리방침 링크/모달 */
 .privacy-link {
-  margin-top: 18px;
+  margin: 0;
   background: none;
   border: none;
   padding: 4px 8px;
