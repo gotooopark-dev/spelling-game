@@ -31,6 +31,13 @@ function App() {
     setScreen(SCREEN.START);
   }, []);
 
+  // 실패 화면의 "다시 하기": 성별 선택/친구 대화는 건너뛰고, 같은 상대와의
+  // 본 대화를 1번 문제부터 바로 다시 시작한다.
+  const retryMainGame = useCallback(() => {
+    setWrongQuestionId(null);
+    setScreen(SCREEN.GAME);
+  }, []);
+
   let content;
   switch (screen) {
     case SCREEN.START:
@@ -67,7 +74,7 @@ function App() {
       );
       break;
     case SCREEN.BLOCKED:
-      content = <BlockedScreen questionId={wrongQuestionId} onRestart={restart} />;
+      content = <BlockedScreen questionId={wrongQuestionId} onRestart={retryMainGame} />;
       break;
     case SCREEN.SUCCESS:
       content = <SuccessScreen onRestart={restart} />;
