@@ -265,6 +265,20 @@
   border-radius: 2px;
 }
 
+/* TV 화면에 실제 광고 이미지가 적용됐을 때만 나타나는 표시 (지금은 비노출) */
+.photo-scene-ad-badge {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  padding: 2.5px 5px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
 /* 사진 메시지 썸네일 */
 .photo-thumb-btn {
   width: 150px;
